@@ -5,7 +5,7 @@ import InstDs from './Inst/Datasource'
 import * as Events from 'events'
 import Package from "./Data/Package";
 
-let
+let counter_pkg: number = 0,
     map_monitors: Map<string, Monitor>
         = Map<string, Monitor>(),
     map_clients: Map<string, Client>
@@ -15,7 +15,7 @@ InstDs.on('update', (data) => {
     let bles: Array<any> = data.bles;
 
     bles.forEach((data) => {
-        console.log(JSON.stringify(data));
+        console.log(counter_pkg++, JSON.stringify(data));
         let {monitor_id, client_mac, rssi} = data;
         let monitor = map_monitors.get(monitor_id);
         let client = map_clients.get(client_mac);

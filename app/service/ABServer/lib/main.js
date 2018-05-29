@@ -14,11 +14,11 @@ const Client_1 = require("./Data/Client");
 const Datasource_1 = require("./Inst/Datasource");
 const Events = require("events");
 const Package_1 = require("./Data/Package");
-let map_monitors = immutable_1.Map(), map_clients = immutable_1.Map();
+let counter_pkg = 0, map_monitors = immutable_1.Map(), map_clients = immutable_1.Map();
 Datasource_1.default.on('update', (data) => {
     let bles = data.bles;
     bles.forEach((data) => {
-        console.log(JSON.stringify(data));
+        console.log(counter_pkg++, JSON.stringify(data));
         let { monitor_id, client_mac, rssi } = data;
         let monitor = map_monitors.get(monitor_id);
         let client = map_clients.get(client_mac);

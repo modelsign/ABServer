@@ -9,4 +9,10 @@ module.exports = app => {
   router.get('/', controller.home.index);
   
   router.get('/analysis', controller.pubABServer.analysis);
+  
+  router.get('/monitors', () => {});
+  router.get('/clients', () => {});
+  router.get('/monitors', () => {});
+  router.get('/monitors', () => {});
+  router.get('/monitors', () => {});
 };
